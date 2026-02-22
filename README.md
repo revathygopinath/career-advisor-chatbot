@@ -74,21 +74,21 @@ Deployment | AWS EC2 (Ubuntu) |
 ---
 
 ## 📂 Project Structure
+
+```text
 career-advisor-chatbot/
-│
-├── app.py # Streamlit UI
-├── gemini_client.py # Gemini API client
-├── chat_manager.py # Conversation memory
-├── prompt_manager.py # System & helper prompts
-├── config.py # Environment-based config
-├── logger.py # Centralized logging
+├── app.py                 # Streamlit UI
+├── gemini_client.py       # Gemini API client
+├── chat_manager.py        # Conversation memory
+├── prompt_manager.py      # System & helper prompts
+├── config.py              # Environment-based config
+├── logger.py              # Centralized logging
 ├── requirements.txt
 ├── utils/
-│ ├── init.py
-│ └── pdf_utils.py # PDF resume extraction
-├── .env.example # Sample environment variables
+│   ├── __init__.py
+│   └── pdf_utils.py       # PDF resume extraction
+├── .env.example           # Sample environment variables
 └── README.md
-
 
 ---
 
