@@ -1,75 +1,34 @@
-# 🚀 CareerIQ — AI Career Advisor Chatbot
+# 🚀 CareerIQ — AI Career Advisor
 
-CareerIQ is a production-ready **AI-powered Career Advisor** built with **Streamlit** and **Google Gemini API**.  
-It provides structured, expert-level guidance for career planning, resume review, job search strategy, and interview preparation.
+CareerIQ is a **production-ready AI Career Advisor** built with **Streamlit** and **Google Gemini**.  
+It helps users with **career guidance, resume reviews, job search strategies, and career transitions**, including **PDF resume upload and analysis**.
 
-This project demonstrates **real-world AI application design**, **prompt engineering**, **API integration**, and **cloud deployment on AWS EC2**.
-
----
-
-## ✨ Key Features
-
-- 🧭 **Career Path Planning** — step-by-step roadmaps
-- 📄 **Resume & LinkedIn Review** — actionable, ATS-friendly feedback
-- 🔍 **Skill Gap Analysis** — what to learn next & why
-- 🎯 **Job Search Strategy** — platforms, outreach, and timelines
-- 🎤 **Interview Preparation** — behavioral & role-based guidance
-- 💬 **Salary Negotiation Advice** — communication frameworks
-- 📎 **PDF Resume Upload (Optional)** — extract & analyze resume text
-- ☁️ **Cloud Deployed** — running on AWS EC2
+🌐 **Live App:**  
+👉 http://18.188.93.72:8501
 
 ---
 
-## 🧠 Tech Stack
+## ✨ Features
 
-| Layer | Technology |
-|-----|-----------|
-Frontend | Streamlit |
-LLM | Google Gemini (`gemini-2.5-flash`) |
-Backend | Python |
-Prompt Control | Custom system prompt (career domain–restricted) |
-PDF Parsing | `pdfplumber` |
-Config Management | `python-dotenv` |
-Logging | Python logging |
-Deployment | AWS EC2 (Ubuntu) |
+- 🤖 AI-powered career guidance using **Google Gemini**
+- 📄 Resume review (text + PDF upload support)
+- 🧭 Career path planning & skill-gap analysis
+- 🎯 Job search & interview preparation guidance
+- 💬 Conversational memory for context-aware responses
+- 🧱 Modular, production-grade architecture
+- ☁️ Deployed on **AWS EC2 (Ubuntu)**
 
 ---
 
-## 📂 Project Structure
-# 🚀 CareerIQ — AI Career Advisor Chatbot
+## 🛠 Tech Stack
 
-CareerIQ is a production-ready **AI-powered Career Advisor** built with **Streamlit** and **Google Gemini API**.  
-It provides structured, expert-level guidance for career planning, resume review, job search strategy, and interview preparation.
-
-This project demonstrates **real-world AI application design**, **prompt engineering**, **API integration**, and **cloud deployment on AWS EC2**.
-
----
-
-## ✨ Key Features
-
-- 🧭 **Career Path Planning** — step-by-step roadmaps
-- 📄 **Resume & LinkedIn Review** — actionable, ATS-friendly feedback
-- 🔍 **Skill Gap Analysis** — what to learn next & why
-- 🎯 **Job Search Strategy** — platforms, outreach, and timelines
-- 🎤 **Interview Preparation** — behavioral & role-based guidance
-- 💬 **Salary Negotiation Advice** — communication frameworks
-- 📎 **PDF Resume Upload (Optional)** — extract & analyze resume text
-- ☁️ **Cloud Deployed** — running on AWS EC2
-
----
-
-## 🧠 Tech Stack
-
-| Layer | Technology |
-|-----|-----------|
-Frontend | Streamlit |
-LLM | Google Gemini (`gemini-2.5-flash`) |
-Backend | Python |
-Prompt Control | Custom system prompt (career domain–restricted) |
-PDF Parsing | `pdfplumber` |
-Config Management | `python-dotenv` |
-Logging | Python logging |
-Deployment | AWS EC2 (Ubuntu) |
+- **Frontend:** Streamlit
+- **LLM:** Google Gemini (gemini-2.5-flash)
+- **Backend:** Python 3.10+
+- **PDF Parsing:** pdfplumber
+- **Config Management:** python-dotenv
+- **Deployment:** AWS EC2 (Ubuntu 22.04)
+- **Version Control:** Git & GitHub
 
 ---
 
@@ -77,135 +36,92 @@ Deployment | AWS EC2 (Ubuntu) |
 
 ```text
 career-advisor-chatbot/
+│
 ├── app.py                 # Streamlit UI
 ├── gemini_client.py       # Gemini API client
 ├── chat_manager.py        # Conversation memory
 ├── prompt_manager.py      # System & helper prompts
 ├── config.py              # Environment-based config
 ├── logger.py              # Centralized logging
-├── requirements.txt
+├── requirements.txt       # Python dependencies
+│
 ├── utils/
 │   ├── __init__.py
 │   └── pdf_utils.py       # PDF resume extraction
+│
 ├── .env.example           # Sample environment variables
-└── README.md
+├── README.md
 
----
+⚙️ Environment Variables
 
-## ⚙️ Setup Instructions (Local)
+Create a .env file in the project root:
 
-### 1️⃣ Clone the repository
-```bash
-git clone https://github.com/<your-username>/career-advisor-chatbot.git
-cd career-advisor-chatbot
-
-2️⃣ Create & activate virtual environment
-
-python -m venv venv
-source venv/bin/activate   # Linux / Mac
-venv\Scripts\activate      # Windows
-pip install -r requirements.txt
-
-3️⃣ Install dependencies
-
-pip install -r requirements.txt
-
-4️⃣ Configure environment variables
-
-Create a .env file:
 GEMINI_API_KEY=your_api_key_here
 GEMINI_MODEL_NAME=gemini-2.5-flash
 TEMPERATURE=0.3
-MAX_OUTPUT_TOKENS=2048
+MAX_OUTPUT_TOKENS=512
 LOG_LEVEL=INFO
+🧑‍💻 Local Setup
+# Clone repository
+git clone https://github.com/revathygopinath/career-advisor-chatbot.git
+cd career-advisor-chatbot
 
-🔐 Never commit .env to GitHub.
-5️⃣ Run the app
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
 
+# Install dependencies
+pip install -r requirements.txt
+
+# Run app
 streamlit run app.py
 
-☁️ Deployment on AWS EC2 (Ubuntu)
-1️⃣ SSH into EC2
-ssh -i your-key.pem ubuntu@<EC2_PUBLIC_IP>
-2️⃣ Install system dependencies
-sudo apt update
-sudo apt install python3 python3-venv python3-pip -y
-3️⃣ Clone repo & setup
-git clone https://github.com/<your-username>/career-advisor-chatbot.git
-cd career-advisor-chatbot
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-4️⃣ Add .env
-nano .env
-5️⃣ Run Streamlit
-streamlit run app.py --server.address 0.0.0.0 --server.port 8501
+Open:
 
-Access via browser:
+http://localhost:8501
+☁️ Deployment on AWS EC2
+# SSH into EC2
+ssh -i careeriq-key.pem ubuntu@<EC2_PUBLIC_IP>
+
+# Navigate to project
+cd career-advisor-chatbot
+source venv/bin/activate
+
+# Run Streamlit
+streamlit run app.py --server.port 8501 --server.address 0.0.0.0
+
+Access the app:
 
 http://<EC2_PUBLIC_IP>:8501
+🔄 Keep App Running After Logout
+nohup streamlit run app.py --server.port 8501 --server.address 0.0.0.0 &
+🎯 Use Cases
 
-Ensure port 8501 is open in the EC2 security group.
+Final-year students exploring career options
 
-🧩 Prompt Engineering (Core Design)
+Career switchers moving into Data / Tech roles
 
-CareerIQ uses a strict system prompt to:
+Resume optimization & ATS-friendly feedback
 
-Stay 100% career-focused
+Interview preparation & skill roadmap planning
 
-Avoid hallucinated statistics
+📌 Future Improvements
 
-Provide structured, actionable advice
+🔐 Authentication
 
-Enforce professional tone and guardrails
+🌍 Custom domain + HTTPS
 
-This makes responses feel expert-driven, not generic chatbot output.
+📊 Usage analytics
 
-🚫 Deliberate Limitations
+🗂 Resume version comparison
 
-No legal employment advice
-
-No financial investment advice
-
-No off-topic questions
-
-No resume creation without user background
-
-No fabricated job market data
-
-These constraints improve trust and response quality.
-
-🔮 Future Enhancements
-
-Resume ↔ Job Description matching
-
-Multi-user authentication
-
-Conversation persistence (DB)
-
-Voice interface
-
-Analytics dashboard
-
-Dockerized deployment
+🧠 Long-term user memory
 
 👩‍💻 Author
 
 Revathy Gopinath
+Data Scientist | AI & Analytics Enthusiast
+
 🔗 GitHub: https://github.com/revathygopinath
 
-⭐ Why This Project Matters
-
-This project demonstrates:
-
-Real-world LLM integration
-
-Clean architecture separation (UI / logic / prompts)
-
-Cloud deployment skills
-
-Strong product thinking
-
-Responsible AI guardrails
-
-
+🔗 LinkedIn: https://linkedin.com/in/revathy-gopinath
