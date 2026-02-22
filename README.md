@@ -52,6 +52,8 @@ career-advisor-chatbot/
 ├── .env.example           # Sample environment variables
 ├── README.md
 
+
+
 ⚙️ Environment Variables
 
 Create a .env file in the project root:
